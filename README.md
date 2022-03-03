@@ -7,7 +7,7 @@ Java library to enable writing to an XML file to populate an Allure report envir
 
 For more information on the Allure report environment widget - https://docs.qameta.io/allure/#_environment
 
-## Example usage
+## Example Usage
 
 ```java
 import static com.github.dwilliamsgs.utils.AllureEnvironmentUtil.*;
@@ -39,3 +39,6 @@ public class AllureEnvironmentUtilTest {
     assertTrue(new File(customAllureDirectory + DEFAULT_ALLURE_FILENAME).isFile());
   }
   ```
+## Allure Report
+
+<img width="600" alt="AllureReport" src="https://user-images.githubusercontent.com/89386048/156541891-762eea44-1739-4e14-8efc-0c9d21e6674f.png">
