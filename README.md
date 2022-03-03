@@ -38,7 +38,19 @@ public class AllureEnvironmentUtilTest {
     writeAllureEnvironmentXml(parameters, customAllureDirectory);
     assertTrue(new File(customAllureDirectory + DEFAULT_ALLURE_FILENAME).isFile());
   }
-  ```
+}
+```
+
 ## Allure Report
 
 <img width="600" alt="AllureReport" src="https://user-images.githubusercontent.com/89386048/156541891-762eea44-1739-4e14-8efc-0c9d21e6674f.png">
+
+## Dependency
+
+```text
+<dependency>
+  <groupId>com.github.dwilliamsgs</groupId>
+  <artifactId>allure-environment-xml</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
