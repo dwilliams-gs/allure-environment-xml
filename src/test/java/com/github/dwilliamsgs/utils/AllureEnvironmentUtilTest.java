@@ -11,7 +11,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class AllureEnvironmentUtilTest {
 
-  public HashMap<String, String> parameters;
+  private HashMap<String, String> parameters;
 
   @BeforeSuite
   void generateAllureEnvironmentXml() {
