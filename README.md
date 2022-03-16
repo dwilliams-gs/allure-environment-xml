@@ -47,10 +47,4 @@ public class AllureEnvironmentUtilTest {
 
 ## Dependency
 
-```text
-<dependency>
-  <groupId>com.github.dwilliamsgs</groupId>
-  <artifactId>allure-environment-xml</artifactId>
-  <version>1.0.0</version>
-</dependency>
-```
+- [Latest packages](https://github.com/dwilliams-gs?tab=packages&repo_name=allure-environment-xml)
