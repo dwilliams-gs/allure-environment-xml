@@ -5,7 +5,7 @@ Java library to enable writing to an XML file to populate an Allure report envir
 - Pass that HashMap into the `writeAllureEnvironmentXml` which then saves those keys / values into an XML file to be consumed by the Allure report environment widget.
 - Ability to customise the Allure directory
 
-For more information on the Allure report environment widget - https://docs.qameta.io/allure/#_environment
+For more information on the Allure report environment widget -  https://docs.qameta.io/allure/#_environment
 
 ## Example Usage
 
@@ -47,10 +47,4 @@ public class AllureEnvironmentUtilTest {
 
 ## Dependency
 
-```text
-<dependency>
-  <groupId>com.github.dwilliamsgs</groupId>
-  <artifactId>allure-environment-xml</artifactId>
-  <version>1.0.0</version>
-</dependency>
-```
+- [Latest packages](https://github.com/dwilliams-gs?tab=packages&repo_name=allure-environment-xml)
