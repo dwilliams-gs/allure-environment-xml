@@ -45,6 +45,7 @@ public class AllureEnvironmentUtilTest {
 
 <img width="600" alt="AllureReport" src="https://user-images.githubusercontent.com/89386048/156541891-762eea44-1739-4e14-8efc-0c9d21e6674f.png">
 
-## Dependency
+## Installing Package
 
-- [Latest packages](https://github.com/dwilliams-gs?tab=packages&repo_name=allure-environment-xml)
+- Follow the steps from GitHub to authenticate to [GitHub packages.](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry#installing-a-package)
+- Use the dependency within your pom.xml from the [Latest packages](https://github.com/dwilliams-gs?tab=packages&repo_name=allure-environment-xml)
