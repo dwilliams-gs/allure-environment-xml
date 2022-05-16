@@ -6,7 +6,7 @@ on:
       - release/*
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -33,6 +33,20 @@ jobs:
         run: mvn -B release:prepare release:perform
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # https://github.com/marketplace/actions/release-changelog-builder
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # https://github:com/marketplace/actions/create-release
+      - name: Create Release
+      - uses: ncipollo/release-action@v1
+        with:
+          body: ${{steps.github_release.outputs.changelog}}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # https://github.com/marketplace/actions/github-pull-request-action
       - name: Create Pull Request
