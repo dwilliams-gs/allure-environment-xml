@@ -53,10 +53,10 @@ jobs:
 
       # https://github.com/marketplace/actions/github-pull-request-action
        - name: Create Pull Request
-       id: open-pr
-       uses: repo-sync/pull-request@v2
-       with:
-         destination_branch: ${{ github.event.repository.default_branch }}
-         pr_title: "[Github Actions] Merge ${{ github.ref_name }} into ${{ github.event.repository.default_branch }}"
-         pr_body: "Automated Pull Request"
-         github_token: ${{ secrets.GITHUB_TOKEN }}
+         id: open-pr
+         uses: repo-sync/pull-request@v2
+         with:
+           destination_branch: ${{ github.event.repository.default_branch }}
+           pr_title: "[Github Actions] Merge ${{ github.ref_name }} into ${{ github.event.repository.default_branch }}"
+           pr_body: "Automated Pull Request"
+           github_token: ${{ secrets.GITHUB_TOKEN }}
