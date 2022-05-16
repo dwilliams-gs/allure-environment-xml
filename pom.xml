@@ -4,7 +4,7 @@
 
     <groupId>com.github.dwilliamsgs</groupId>
     <artifactId>allure-environment-xml</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,7 +24,7 @@
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
         <url>https://github.com/dwilliams-gs/allure-environment-xml.git</url>
-        <tag>HEAD</tag>
+        <tag>allure-environment-xml-1.0.2</tag>
     </scm>
 
     <dependencies>
