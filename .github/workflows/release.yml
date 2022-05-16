@@ -35,19 +35,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # https://github.com/marketplace/actions/actions-ecosystem-action-get-latest-tag
-      - name: Get Latest Tag
-        uses: actions-ecosystem/action-get-latest-tag@v1
-        id: get-latest-tag
-        if: ${{ steps.release-label.outputs.level != null }}
+      # https://github.com/marketplace/actions/get-latest-tag
+      - name: 'Get Latest tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
-          semver_only: true
+          fallback: 1.0.1
 
       # https://github:com/marketplace/actions/create-release
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.get-latest-tag.outputs.tag }}
+          tag: ${{ steps.previoustag.outputs.tag }}
           generateReleaseNotes: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
