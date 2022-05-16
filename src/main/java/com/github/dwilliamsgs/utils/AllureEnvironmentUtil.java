@@ -9,6 +9,8 @@ import javax.xml.stream.XMLStreamWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +42,7 @@ public class AllureEnvironmentUtil {
     try {
       XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newFactory();
       XMLStreamWriter streamWriter = xmlOutputFactory.createXMLStreamWriter(
-              new FileOutputStream(customAllureDirectory + DEFAULT_ALLURE_FILENAME), "utf-8");
+              Files.newOutputStream(Paths.get(customAllureDirectory + DEFAULT_ALLURE_FILENAME)), "utf-8");
       XmlMapper xmlMapper = new XmlMapper();
 
       streamWriter.writeStartDocument();
