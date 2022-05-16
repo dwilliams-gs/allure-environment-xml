@@ -32,7 +32,7 @@ public class AllureEnvironmentUtil {
   /**
    * Creates an Allure Environment XML file required to populate the Environment widget within an Allure report.
    * This XML file is incrementally written to using the provided HashMap of keys / values to be included within the file.
-   * Once finished this file is created within the provided customAllureDirectory under the filename {@link #DEFAULT_ALLURE_FILENAME}
+   * Once finished this file is created within the provided customAllureDirectory using the filename {@link #DEFAULT_ALLURE_FILENAME}
    * @param parameters            HashMap of key / values to be included within the file
    * @param customAllureDirectory Custom directory to story the environment.xml file
    */
