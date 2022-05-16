@@ -36,7 +36,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # https://github.com/marketplace/actions/release-changelog-builder
-
       - name: Build Changelog
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v3
