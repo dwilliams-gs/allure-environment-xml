@@ -28,3 +28,20 @@ jobs:
         run: mvn -B release:prepare release:perform
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # https://github.com/marketplace/actions/github-pull-request-action
+      - name: Create pull request
+      id: open-pr
+      uses: repo-sync/pull-request@v2
+      with:
+        github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        destination_branch: ${{ github.event.repository.default_branch }}
+        pr_title: "[Github Actions] Merge ${{ github.ref_name }} into ${{ github.event.repository.default_branch }}"
+
+      # https://github.com/marketplace/actions/enable-pull-request-automerge
+      - name: Enable Auto Merge
+        if: steps.open-pr.outputs.pr_number != ''
+        uses: peter-evans/enable-pull-request-automerge@v2
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          pull-request-number: ${{ steps.open-pr.outputs.pr_number }}
+          merge-method: merge
