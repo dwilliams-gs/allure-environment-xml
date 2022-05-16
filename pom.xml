@@ -17,10 +17,14 @@
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>GitHub dwilliams-gs Apache Maven Packages</name>
+            <name>GitHub</name>
             <url>https://maven.pkg.github.com/dwilliams-gs/allure-environment-xml</url>
         </repository>
     </distributionManagement>
+
+    <scm>
+        <developerConnection>scm:git:https://github.com/dwilliams-gs/allure-environment-xml.git</developerConnection>
+    </scm>
 
     <dependencies>
         <dependency>
