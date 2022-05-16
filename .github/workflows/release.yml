@@ -2,18 +2,50 @@ name: Release
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - release/*
 
 jobs:
-  release:
-    if: startsWith(github.ref, 'refs/tags/')
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      packages: write
+      pull-requests: write
 
     steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+
+      - name: Configure Git user
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Publish JAR
+        run: mvn -B release:prepare release:perform
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # https://github.com/marketplace/actions/github-pull-request-action
+      - name: Create Pull Request
+        id: open-pr
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: ${{ github.event.repository.default_branch }}
+          pr_title: "[Github Actions] Merge ${{ github.ref_name }} into ${{ github.event.repository.default_branch }}"
+          pr_body: "Automated Pull Request"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
       # https://github.com/marketplace/actions/release-changelog-builder
+
       - name: Build Changelog
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v3
@@ -24,6 +56,6 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ github.ref }}
+          tag: ${{steps.github_release.outputs.toTag}}
           body: ${{steps.github_release.outputs.changelog}}
           token: ${{ secrets.GITHUB_TOKEN }}
