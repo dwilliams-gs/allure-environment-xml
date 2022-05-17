@@ -37,7 +37,7 @@ jobs:
 
       # https://github.com/marketplace/actions/get-latest-tag
       - name: 'Get Latest tag'
-        id: previoustag
+        id: latest_tag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
           fallback: 1.0.1
@@ -46,7 +46,7 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.previoustag.outputs.tag }}
+          tag: ${{ steps.latest_tag.outputs.tag }}
           generateReleaseNotes: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
