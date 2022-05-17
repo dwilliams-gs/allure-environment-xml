@@ -1,3 +1,10 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release branch is created
+
+# 1. Triggered from the creation of a new release branch
+# 2. Prepares and then releases the dependency using the maven release plugin
+# 3. Creates a release using the tag produced from the release plugin (contains the auto generated release notes)
+# 4. Creates a pull request to merge the release branch back into main with the bumped y-SNAPSHOT version
+
 name: Release
 
 on:
