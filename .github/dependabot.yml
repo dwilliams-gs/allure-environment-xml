@@ -6,4 +6,14 @@ updates:
       interval: weekly
       day: monday
       time: '07:00'
+    labels:
+      - "dependencies"
     open-pull-requests-limit: 10
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: '07:00'
+    labels:
+      - "github-actions"
